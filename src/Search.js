@@ -23,14 +23,15 @@ class Search extends Component {
     this.props.q(this.refs.searchQoury.value);
     this.setState({ComponentSearchQoury: this.refs.searchQoury.value});
     this.setState({ComponentQ: apiUrl+this.refs.searchQoury.value});
-    if(this.state.q !== null){
-      this.getData();
+    if(this.refs.searchQoury.value !== null){
+      this.getData(apiUrl+this.refs.searchQoury.value);
     }
+    
     event.preventDefault();
   }
 
-  getData(){
-    axios.get(this.state.ComponentQ)
+  getData(urlToSearch){
+    axios.get(urlToSearch)
     .then((response) => {
       const result = response.data.items;
       // console.log(result);
