@@ -5,15 +5,7 @@ class YouTubeVideo extends React.Component {
     constructor(props){
         super(props);
         window.ytvideo = this;
-        this.state = {
-            start_time: null,
-            end_time: null,
-            total_time: null,
-            save_total: null,
-            id_to_save: null
-        };
     }
-      
 
     render() {
     const opts = {
@@ -45,21 +37,24 @@ class YouTubeVideo extends React.Component {
   }
   
   _onPlay(event) {
-    console.log('start');
-    if(window.ytvideo.state.id_to_save !== null){
-        alert(window.ytvideo.state.id_to_save+" : "+window.ytvideo.state.save_total);
-    }
-    window.ytvideo.setState({start_time: new Date()}); 
-    window.ytvideo.setState({id_to_save: window.ytvideo.props.ytid}); 
+    // console.log('start');
+    // if(window.ytvideo.state.id_to_save !== null){
+    //     alert(window.ytvideo.state.id_to_save+" : "+window.ytvideo.state.save_total);
+    // }
+    // window.ytvideo.setState({start_time: new Date()}); 
+    // window.ytvideo.setState({id_to_save: window.ytvideo.props.ytid}); 
+    window.ytvideo.props.getUserAction('_onPlay');
   }
 
   _onPause(event) {
-    window.ytvideo._save();
+    //window.ytvideo._save();
+    window.ytvideo.props.getUserAction('_onPause');
   }
 
   _onEnd(event) {
-    window.ytvideo._save();
-    alert('store to db');
+    window.ytvideo.props.getUserAction('_onEnd');
+    // window.ytvideo._save();
+    // alert('store to db');
   }
 
   _save(){
@@ -73,7 +68,6 @@ class YouTubeVideo extends React.Component {
         window.ytvideo.setState({save_total: new_total / 1000});
     } 
     console.log(window.ytvideo.state.save_total);
-    
   }
 }
 

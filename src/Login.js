@@ -1,18 +1,6 @@
 import React, { Component } from 'react';
 var firebase = require('firebase');
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyCUkh3vZCBcZqjfAnCRrQmV-W6KPYQ-VbM",
-    authDomain: "kimaia-5807f.firebaseapp.com",
-    databaseURL: "https://kimaia-5807f.firebaseio.com",
-    projectId: "kimaia-5807f",
-    storageBucket: "kimaia-5807f.appspot.com",
-    messagingSenderId: "169231303917",
-    appId: "1:169231303917:web:0913e201bfe5cc1d02b8e4"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
 
   class Login extends Component {
 
@@ -20,7 +8,7 @@ var firebase = require('firebase');
       const email = this.refs.email.value;
       this.setState({userEmail: email});
       const password = this.refs.password.value;
-      console.log(email, password);
+      // console.log(email, password);
       const auth = firebase.auth();
       const promise = auth.signInWithEmailAndPassword(email, password);
   
@@ -97,10 +85,10 @@ var firebase = require('firebase');
               <div className="row">
                 <div id="notlogin">
                   <div className="col">
-                    <input  className="form-control" id="email" ref="email" type="email" placeholder="Enter your email" />
+                    <input  className="form-control" id="email" ref="email" type="email" defaultValue="zurbracha@gmail.com" placeholder="Enter your email" />
                   </div>
                   <div className="col">
-                    <input className="form-control"  id="pass" ref="password" type="password" placeholder="Enter your password"  />
+                    <input className="form-control"  id="pass" ref="password" type="password" defaultValue="zurbracha@gmail.com" placeholder="Enter your password"  />
                   </div>
                   <button className="btn btn-primary" onClick={this.login}>Log In</button>
                   <button className="btn btn-primary" onClick={this.signup}>Sign Up</button>

@@ -12,7 +12,6 @@ class Search extends Component {
     this.state = {
       ComponentQ: null,
       ComponentSearchQoury: null
-
     }
     this.searchFun = this.searchFun.bind(this);
     this.getData = this.getData.bind(this);
@@ -26,7 +25,6 @@ class Search extends Component {
     if(this.refs.searchQoury.value !== null){
       this.getData(apiUrl+this.refs.searchQoury.value);
     }
-    
     event.preventDefault();
   }
 
@@ -48,9 +46,10 @@ class Search extends Component {
       <div className="search-box">
         <div className="container h-100">
           <div className="d-flex justify-content-center h-100">
+            <div className="click-m">Click to search <i className="fa fa-arrow-right"></i></div>
             <div className="searchbar">
               <form onSubmit={this.searchFun}>
-                <input className="search_input" ref="searchQoury"  type="text" name="" defaultValue="test" placeholder="Search..." />
+                <input className="search_input" ref="searchQoury"  type="text" name="" defaultValue="react api" placeholder="Search..." />
                 <button href="#" className="search_icon">
                 <i className="fa fa-search"></i>
                 </button>

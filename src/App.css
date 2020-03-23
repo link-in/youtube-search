@@ -179,9 +179,17 @@ h3.videotitle {
 }
 
 p.welcome {
-  background: #fff;
+  background: #34495e;
   margin: 0px 10px 0px 0px;
   font-size: 18px;
   padding: 10px;
   border-radius: 5px;
+  color: #fff;
+}
+
+.click-m {
+  color: #fff;
+  font-size: 20px;
+  line-height: 50px;
+  margin-right: 40px;
 }
