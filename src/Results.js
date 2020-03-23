@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-/*test v3 */
+import YouTubeVideo from './YouTubeVideo';
+
 class Results extends Component {
   constructor(props){
     super(props);
 
     this.state = {
       iframToPlay: null,
-      videoTitle: null
+      videoTitle: null,
+      ytid: null
     };
     this.play = this.play.bind(this);
   }
@@ -16,6 +18,7 @@ class Results extends Component {
     var iframe =<iframe width="590" height="340" title="myFrame" src={link} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>;
     var videoTitle = <h3 className="videotitle">{video.snippet.title}</h3>;
     this.setState({iframToPlay: iframe});
+    this.setState({ytid: video.id.videoId});
     this.setState({videoTitle});
     this.props.uuid();
     if(this.props.userData !== null){
@@ -24,7 +27,8 @@ class Results extends Component {
     
   } 
 
-  
+
+
     render() {
       {
         if(this.props.searchRessults !== null){
@@ -69,8 +73,14 @@ class Results extends Component {
             </div>
             <div className="col-md-6">
               <div className="play-box">
-                {iframtoplay}
                 {videoTitle}
+                {this.state.ytid
+                  ? <YouTubeVideo ytid={this.state.ytid} />
+                  : ''
+                }
+                {/*iframtoplay*/}
+                
+                
               </div>
             </div>
           </div>

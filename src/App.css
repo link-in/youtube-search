@@ -128,7 +128,8 @@ i.fa.fa-play {
 }
 .play-box {
   position: fixed;
-  top: 50%;
+  /* top: 50%; */
+  top: 15%;
 }
 
 .login-inner {

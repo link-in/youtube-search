@@ -50,7 +50,7 @@ class Search extends Component {
           <div className="d-flex justify-content-center h-100">
             <div className="searchbar">
               <form onSubmit={this.searchFun}>
-                <input className="search_input" ref="searchQoury"  type="text" name="" placeholder="Search..." />
+                <input className="search_input" ref="searchQoury"  type="text" name="" defaultValue="test" placeholder="Search..." />
                 <button href="#" className="search_icon">
                 <i className="fa fa-search"></i>
                 </button>

@@ -13,6 +13,7 @@ import Results from './Results';
 
 
 
+
 class App extends Component {
 
   constructor() {
@@ -22,8 +23,7 @@ class App extends Component {
         searchRessults: null,
         searchQoury : null,
         q: null,
-        userData: null
-        
+        userData: null        
     };
 
     this.toSave = this.toSave.bind(this);
