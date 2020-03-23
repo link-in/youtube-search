@@ -42,6 +42,7 @@ var firebase = require('firebase');
         firebase.database().ref('users/'+user.uid).set({
           email: email
         });
+        this.props.getUserData(user);
         var element = document.getElementById('welcome');
         element.classList.remove('hide');
       });

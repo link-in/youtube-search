@@ -126,10 +126,10 @@ i.fa.fa-play {
   color: #fff;
   font-size: 22px;
 }
+
 .play-box {
   position: fixed;
-  /* top: 50%; */
-  top: 15%;
+  bottom: 10px;
 }
 
 .login-inner {
