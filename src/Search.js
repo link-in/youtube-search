@@ -48,14 +48,14 @@ class Search extends Component {
       return false;
     }
 
-    firebase.database().ref('users_activity /'+this.props.uuid).set({
+    firebase.database().ref('users_query/'+this.props.uuid).set({
         query:q,
         userEmail:this.props.userData.email
     }, function(error) {
       if (error) {
        console.log("error: "+error);
       }else{ 
-       console.log('saved to firebase');
+       console.log('saved to firebase: users_query');
       }
     });
   
@@ -69,7 +69,7 @@ class Search extends Component {
             <div className="click-m">Click to search <i className="fa fa-arrow-right"></i></div>
             <div className="searchbar">
               <form onSubmit={this.searchFun}>
-                <input className="search_input" ref="searchQoury"  type="text" name="" defaultValue="react api" placeholder="Search..." />
+                <input className="search_input" ref="searchQoury"  type="text" name="" defaultValue="" placeholder="Search..." />
                 <button href="#" className="search_icon">
                 <i className="fa fa-search"></i>
                 </button>

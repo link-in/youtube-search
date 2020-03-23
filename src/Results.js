@@ -63,7 +63,6 @@ class Results extends Component {
           this.setState({total_time: new_total});
           this.setState({save_total: new_total / 1000});
       } 
-      alert(this.state.save_total);
       console.log(this.state.save_total);
       this.toSave(this.state.video);
     }
@@ -85,7 +84,6 @@ class Results extends Component {
        console.log("error: "+error);
        
       }else{ 
-       alert('saved to firebase');
        console.log('saved to firebase');
       }
     });
