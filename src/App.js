@@ -11,21 +11,21 @@ import Header from './Header';
 import Login from './Login';
 import Search from './Search';
 import Results from './Results';
+import Users_activity from './Users_activity';
 
-// var firebase = require('firebase');
-//   // Your web app's Firebase configuration
-//   const firebaseConfig = {
-//     apiKey: "AIzaSyCUkh3vZCBcZqjfAnCRrQmV-W6KPYQ-VbM",
-//     authDomain: "kimaia-5807f.firebaseapp.com",
-//     databaseURL: "https://kimaia-5807f.firebaseio.com",
-//     projectId: "kimaia-5807f",
-//     storageBucket: "kimaia-5807f.appspot.com",
-//     messagingSenderId: "169231303917",
-//     appId: "1:169231303917:web:0913e201bfe5cc1d02b8e4"
-//   };
-//   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
-
+var firebase = require('firebase');
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCUkh3vZCBcZqjfAnCRrQmV-W6KPYQ-VbM",
+    authDomain: "kimaia-5807f.firebaseapp.com",
+    databaseURL: "https://kimaia-5807f.firebaseio.com",
+    projectId: "kimaia-5807f",
+    storageBucket: "kimaia-5807f.appspot.com",
+    messagingSenderId: "169231303917",
+    appId: "1:169231303917:web:0913e201bfe5cc1d02b8e4"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
 
 class App extends Component {
@@ -76,13 +76,22 @@ class App extends Component {
       <div className="App">
         <Header headerText="Youtube Search" />
         <Login getUserData={this.setUserData}/>
-        <Search SearchQoury={this.setSearchQoury} q={this.setQ}  searchRessults={this.setSearchRessults} />
+        <Search 
+          SearchQoury={this.setSearchQoury} 
+          q={this.setQ}  
+          searchRessults={this.setSearchRessults} 
+          userData={this.state.userData}
+          uuid={this.state.uuid}
+        />
         <Results 
           searchRessults={this.state.searchRessults} 
           searchQoury={this.state.searchQoury} 
           videoTitle={this.state.videoTitle} 
           userData={this.state.userData}
           uuid={this.state.uuid}
+        />
+        <Users_activity
+          searchRessults={this.state.searchRessults}
         />
       </div>
 

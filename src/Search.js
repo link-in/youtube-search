@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+var firebase = require('firebase');
 
 const api ='AIzaSyAie6bUz7eaix7F0xKbkowIlgahHsimPts';
 const maxResults = 10;
@@ -15,6 +16,7 @@ class Search extends Component {
     }
     this.searchFun = this.searchFun.bind(this);
     this.getData = this.getData.bind(this);
+    this.toSave = this.toSave.bind(this);
   }
 
   searchFun(event){
@@ -23,6 +25,7 @@ class Search extends Component {
     this.setState({ComponentSearchQoury: this.refs.searchQoury.value});
     this.setState({ComponentQ: apiUrl+this.refs.searchQoury.value});
     if(this.refs.searchQoury.value !== null){
+      this.toSave(this.refs.searchQoury.value);
       this.getData(apiUrl+this.refs.searchQoury.value);
     }
     event.preventDefault();
@@ -38,8 +41,25 @@ class Search extends Component {
     .catch((error) => {
       console.log(error);
     })
-
   }  
+
+  toSave = (q) => {
+    if(this.props.userData === null){
+      return false;
+    }
+
+    firebase.database().ref('users_activity /'+this.props.uuid).set({
+        query:q,
+        userEmail:this.props.userData.email
+    }, function(error) {
+      if (error) {
+       console.log("error: "+error);
+      }else{ 
+       console.log('saved to firebase');
+      }
+    });
+  
+  }
 
   render() {
     return (

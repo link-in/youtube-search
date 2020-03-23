@@ -12,7 +12,8 @@ class YouTubeVideo extends React.Component {
       height: '390',
       width: '640',
       playerVars: { // https://developers.google.com/youtube/player_parameters
-        autoplay: 0,
+        autoplay: true,
+        playing:true,
         frameBorder: 0 ,
         allowFullScreen: 1,
         origin: 'http://localhost:3000'
